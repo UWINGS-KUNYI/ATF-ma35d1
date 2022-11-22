@@ -94,3 +94,4 @@ tags
 
 # Node.js
 node_modules/
+.vscode

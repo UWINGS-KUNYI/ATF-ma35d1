@@ -93,10 +93,29 @@ int crypto_mod_calc_hash(unsigned int alg, void *data_ptr,
 		.calc_hash = _calc_hash, \
 		.auth_decrypt = _auth_decrypt \
 	}
+#define REGISTER_CRYPTO_LIB_MA35(_name, _init, _verify_signature, _verify_hash, \
+			    _calc_hash, _auth_decrypt) \
+	const crypto_lib_desc_t crypto_lib_desc_ma35 = { \
+		.name = _name, \
+		.init = _init, \
+		.verify_signature = _verify_signature, \
+		.verify_hash = _verify_hash, \
+		.calc_hash = _calc_hash, \
+		.auth_decrypt = _auth_decrypt \
+	}
 #else
 #define REGISTER_CRYPTO_LIB(_name, _init, _verify_signature, _verify_hash, \
 			    _auth_decrypt) \
 	const crypto_lib_desc_t crypto_lib_desc = { \
+		.name = _name, \
+		.init = _init, \
+		.verify_signature = _verify_signature, \
+		.verify_hash = _verify_hash, \
+		.auth_decrypt = _auth_decrypt \
+	}
+#define REGISTER_CRYPTO_LIB_MA35(_name, _init, _verify_signature, _verify_hash, \
+			    _auth_decrypt) \
+	const crypto_lib_desc_t crypto_lib_desc_ma35 = { \
 		.name = _name, \
 		.init = _init, \
 		.verify_signature = _verify_signature, \
