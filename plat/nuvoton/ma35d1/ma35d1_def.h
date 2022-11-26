@@ -57,7 +57,7 @@
 #define MA35D1_DTB_SIZE		U(0x00002000)
 
 #define MA35D1_BL31_BASE		U(0x28025000)
-#define MA35D1_BL31_SIZE		U(0x00016000)	/* 0x2803C000 is reserved to IBR */
+#define MA35D1_BL31_SIZE		U(0x00016FFF)	/* 0x2803C000 is reserved to IBR */
 
 #define MA35D1_BL32_SIZE		U(0x00200000)
 
@@ -194,6 +194,9 @@
 #define SYS_RLKTZS	U(0x404601A0)
 #define SYS_RLKTZNS	U(0x404601A4)
 
+#define SYS_PWRONPIN	U(0x40460008)	/*!< Power-on Setting Pin Source Register */
+#define SYS_CHIPCFG	U(0x404601F4)	/*!< Chip Configuration Register */
+
 /* clock registers */
 #define CLK_PWRCTL	U(0x40460200)
 #define CLK_SYSCLK0	U(0x40460204)
@@ -230,6 +233,7 @@
 #define CRYPTO_BASE	U(0x40300000)
 #define TSI_SYS_BASE	U(0x40360000)
 #define TSI_CLK_BASE	U(0x40360200)
+#define TSI_PARAM_BASE	U(0x2803EE00) /* 0xA00 */
 #define KS_BASE		U(0x40340000)
 #define WHC0_BASE	U(0x403A0000)
 #define WHC1_BASE	U(0x503B0000)
